@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 4-Leak Practice Revenue Audit — ZAC 3 Genius</title>
+<meta name="description" content="A 7-question diagnostic that reveals how much revenue your practice is quietly losing each month — and exactly where the leak is hiding.">
+<style>
+  /* ============================================================
+     BRAND TOKENS — ZAC 3 GENIUS Medical Brand
+     ============================================================ */
+  :root{
+    --navy:#0E1B3D;          /* deep sapphire blue — primary bg */
+    --navy-light:#172A55;    /* card / panel bg */
+    --navy-hover:#1F3268;    /* interactive elements */
+    --panel:#172A55;
+    --border:#283C73;        /* subtle borders */
+    --gold:#C9A96E;          /* champagne gold accent */
+    --gold-soft:#D9BD86;     /* lighter gold for hover */
+    --teal:#4EC9B0;          /* medical teal (sparingly) */
+    --cream:#F0F4F8;         /* off-white text */
+    --taupe:#9CA8C2;         /* muted blue-grey for descriptions */
+    --charcoal:#5A6985;
+    /* legacy aliases kept so calculator JS still references work */
+    --black:#0E1B3D;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+    background:var(--navy);
+    color:var(--cream);
+    line-height:1.6;
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+
+  /* ============================================================
+     LAYOUT
+     ============================================================ */
+  .wrap{max-width:980px;margin:0 auto;padding:60px 28px;}
+
+  /* ============================================================
+     SECTION 1 — HERO
+     ============================================================ */
+  .hero{
+    text-align:center;
+    padding:80px 28px 60px;
+    border-bottom:1px solid var(--border);
+  }
+  .kicker{
+    font-size:12px;
+    letter-spacing:4px;
+    color:var(--gold);
+    font-weight:700;
+    margin-bottom:24px;
+  }
+  .hero h1{
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:56px;
+    line-height:1.05;
+    font-weight:700;
+    letter-spacing:-1.5px;
+    color:var(--cream);
+    margin-bottom:24px;
+    max-width:780px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .hero h1 em{font-style:italic;color:var(--gold);}
+  .hero .sub{
+    font-family:Georgia,serif;
+    font-style:italic;
+    font-size:21px;
+    color:var(--taupe);
+    max-width:680px;
+    margin:0 auto 14px;
+    line-height:1.5;
+  }
+  .hero .micro{
+    font-size:14px;
+    color:var(--taupe);
+    margin-bottom:48px;
+  }
+  .hero .micro strong{color:var(--gold);font-weight:700;}
+
+  /* ============================================================
+     SECTION 2 — OPT-IN FORM
+     ============================================================ */
+  .form-card{
+    background:linear-gradient(135deg,#0E1B3D 0%,#172A55 100%);
+    border:1px solid var(--gold);
+    border-radius:8px;
+    padding:40px 36px;
+    max-width:520px;
+    margin:0 auto;
+    text-align:left;
+    box-shadow:0 30px 80px rgba(0,0,0,0.5);
+  }
+  .form-title{
+    font-family:Georgia,serif;
+    font-size:22px;
+    color:var(--cream);
+    font-weight:700;
+    text-align:center;
+    margin-bottom:8px;
+  }
+  .form-subtitle{
+    text-align:center;
+    font-size:13px;
+    color:var(--taupe);
+    margin-bottom:28px;
+    letter-spacing:0.3px;
+  }
+  .field{margin-bottom:18px;}
+  .field label{
+    display:block;
+    font-size:12px;
+    letter-spacing:1.5px;
+    color:var(--taupe);
+    font-weight:600;
+    margin-bottom:8px;
+    text-transform:uppercase;
+  }
+  .field input, .field select{
+    width:100%;
+    padding:14px 16px;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:4px;
+    color:var(--cream);
+    font-size:15px;
+    font-family:inherit;
+    transition:border-color 0.2s;
+  }
+  .field input:focus, .field select:focus{
+    outline:none;
+    border-color:var(--gold);
+  }
+  .field select{cursor:pointer;}
+  .submit-btn{
+    display:block;
+    width:100%;
+    background:var(--gold);
+    color:var(--black);
+    padding:18px 24px;
+    border-radius:4px;
+    border:none;
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    cursor:pointer;
+    margin-top:8px;
+    transition:transform 0.2s,box-shadow 0.2s;
+    font-family:inherit;
+  }
+  .submit-btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 8px 24px rgba(184,134,11,0.3);
+  }
+  .form-trust{
+    margin-top:20px;
+    text-align:center;
+    font-size:11px;
+    color:var(--taupe);
+    letter-spacing:1px;
+  }
+  .form-trust .dot{display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--gold);margin:0 8px;vertical-align:middle;}
+
+  /* ============================================================
+     SECTION 3 — WHAT YOU'LL DISCOVER
+     ============================================================ */
+  .benefits{
+    padding:60px 28px;
+    border-bottom:1px solid var(--border);
+  }
+  .benefits-title{
+    font-family:Georgia,serif;
+    font-size:14px;
+    letter-spacing:3px;
+    color:var(--gold);
+    font-weight:700;
+    text-align:center;
+    margin-bottom:36px;
+    text-transform:uppercase;
+  }
+  .benefits-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:28px;
+    max-width:820px;
+    margin:0 auto;
+  }
+  @media (max-width:600px){
+    .benefits-grid{grid-template-columns:1fr;}
+  }
+  .benefit{
+    background:rgba(201,169,110,0.08);
+    border-left:2px solid var(--gold);
+    padding:24px 26px;
+    border-radius:0 4px 4px 0;
+  }
+  .benefit-num{
+    font-family:Georgia,serif;
+    font-size:28px;
+    font-weight:700;
+    color:var(--gold);
+    line-height:1;
+    margin-bottom:10px;
+  }
+  .benefit-title{
+    font-weight:700;
+    color:var(--cream);
+    margin-bottom:6px;
+    font-size:15px;
+  }
+  .benefit-desc{
+    font-size:13px;
+    color:var(--taupe);
+    line-height:1.5;
+  }
+
+  /* ============================================================
+     SECTION 4 — AUTHORITY STRIP
+     ============================================================ */
+  .authority{
+    text-align:center;
+    padding:50px 28px;
+    border-bottom:1px solid var(--border);
+  }
+  .authority-quote{
+    font-family:Georgia,serif;
+    font-style:italic;
+    font-size:22px;
+    color:var(--cream);
+    max-width:680px;
+    margin:0 auto 18px;
+    line-height:1.4;
+  }
+  .authority-by{
+    font-size:12px;
+    letter-spacing:3px;
+    color:var(--gold);
+    font-weight:700;
+  }
+
+  /* ============================================================
+     SECTION 5 — CALCULATOR (HIDDEN INITIALLY)
+     ============================================================ */
+  .calculator-wrap{
+    display:none;
+    padding:0 0 60px;
+  }
+  .calculator-wrap.revealed{display:block;}
+  .calc-intro{
+    text-align:center;
+    padding:60px 28px 40px;
+    background:linear-gradient(180deg,rgba(184,134,11,0.08) 0%,transparent 100%);
+    border-bottom:1px solid var(--border);
+  }
+  .calc-intro h2{
+    font-family:Georgia,serif;
+    font-size:36px;
+    color:var(--cream);
+    margin-bottom:14px;
+    font-weight:700;
+  }
+  .calc-intro h2 em{font-style:italic;color:var(--gold);}
+  .calc-intro p{
+    font-family:Georgia,serif;
+    font-style:italic;
+    color:var(--taupe);
+    font-size:17px;
+    max-width:600px;
+    margin:0 auto;
+  }
+  .calc{max-width:880px;margin:0 auto;padding:0 28px;}
+  .calc-section{margin-bottom:40px;}
+  .calc-section-title{
+    font-family:Georgia,serif;
+    font-size:18px;
+    color:var(--gold);
+    font-weight:700;
+    margin:40px 0 24px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    display:flex;
+    align-items:center;
+  }
+  .calc-num{
+    display:inline-block;
+    background:var(--gold);
+    color:var(--black);
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    text-align:center;
+    line-height:28px;
+    font-size:14px;
+    font-weight:700;
+    margin-right:14px;
+  }
+  .q{
+    margin-bottom:28px;
+    padding-bottom:24px;
+    border-bottom:1px solid var(--border);
+  }
+  .q:last-child{border-bottom:none;padding-bottom:0;}
+  .q-label{
+    display:block;
+    font-size:15px;
+    margin-bottom:8px;
+    color:var(--cream);
+    font-weight:600;
+  }
+  .q-help{
+    font-size:13px;
+    color:var(--taupe);
+    margin-bottom:14px;
+    font-style:italic;
+  }
+  .slider-wrap{display:flex;align-items:center;gap:16px;}
+  .slider-wrap input[type="range"]{
+    flex:1;
+    -webkit-appearance:none;
+    appearance:none;
+    height:4px;
+    background:var(--border);
+    border-radius:2px;
+    outline:none;
+  }
+  .slider-wrap input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    appearance:none;
+    width:20px;height:20px;
+    background:var(--gold);
+    border-radius:50%;
+    cursor:pointer;
+    box-shadow:0 2px 6px rgba(184,134,11,0.4);
+  }
+  .slider-wrap input[type="range"]::-moz-range-thumb{
+    width:20px;height:20px;
+    background:var(--gold);
+    border-radius:50%;
+    cursor:pointer;
+    border:none;
+  }
+  .slider-value{
+    min-width:60px;
+    text-align:right;
+    font-weight:700;
+    color:var(--gold);
+    font-size:18px;
+  }
+  .currency-row{display:flex;gap:16px;margin-bottom:28px;flex-wrap:wrap;}
+  .currency-row > div{flex:1;min-width:240px;}
+
+  /* Results panel */
+  .results{
+    background:linear-gradient(135deg,#0E1B3D 0%,#172A55 100%);
+    border:1px solid var(--gold);
+    border-radius:8px;
+    padding:50px 40px;
+    margin-top:40px;
+    text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  }
+  .results-kicker{
+    font-size:11px;letter-spacing:3px;color:var(--gold);font-weight:700;
+    text-transform:uppercase;margin-bottom:16px;
+  }
+  .leak-amount{
+    font-family:Georgia,serif;
+    font-size:64px;
+    color:var(--cream);
+    font-weight:700;
+    margin:16px 0 8px;
+    line-height:1;
+  }
+  .leak-period{color:var(--taupe);font-size:14px;margin-bottom:30px;}
+  .annual{
+    display:inline-block;
+    background:rgba(184,134,11,0.15);
+    padding:10px 20px;
+    border-radius:4px;
+    font-size:14px;
+  }
+  .annual strong{color:var(--gold);font-size:16px;}
+  .breakdown{margin-top:40px;text-align:left;}
+  .breakdown-title{
+    font-family:Georgia,serif;font-size:15px;color:var(--gold);
+    margin-bottom:20px;text-transform:uppercase;letter-spacing:2px;
+  }
+  .bar{margin-bottom:20px;}
+  .bar-row{
+    display:flex;justify-content:space-between;
+    margin-bottom:8px;font-size:14px;
+    flex-wrap:wrap;gap:8px;
+  }
+  .bar-label{color:var(--cream);}
+  .bar-value{color:var(--gold);font-weight:700;}
+  .bar-track{height:8px;background:#0B1530;border-radius:4px;overflow:hidden;}
+  .bar-fill{
+    height:100%;
+    background:linear-gradient(90deg,var(--gold),var(--gold-soft));
+    transition:width 0.6s ease;
+  }
+  .diagnosis{
+    margin-top:40px;padding-top:30px;
+    border-top:1px solid var(--border);text-align:left;
+  }
+  .diagnosis h3{
+    font-family:Georgia,serif;color:var(--gold);
+    font-size:15px;margin-bottom:14px;
+    text-transform:uppercase;letter-spacing:2px;
+  }
+  .diagnosis p{color:var(--cream);font-size:15px;margin-bottom:14px;}
+  .diagnosis em{color:var(--taupe);}
+  .roadmap{margin-top:30px;text-align:left;}
+  .roadmap h3{
+    font-family:Georgia,serif;color:var(--gold);
+    font-size:15px;margin-bottom:18px;
+    text-transform:uppercase;letter-spacing:2px;
+  }
+  .action{
+    background:rgba(201,169,110,0.08);
+    border-left:2px solid var(--gold);
+    padding:18px 22px;margin-bottom:14px;
+  }
+  .action-title{
+    color:var(--gold);font-weight:700;
+    font-size:15px;margin-bottom:6px;
+  }
+  .action-desc{color:var(--cream);font-size:14px;line-height:1.5;}
+
+  /* ============================================================
+     SECTION 6 — STRATEGY CALL CTA
+     ============================================================ */
+  .strategy-cta{
+    margin:60px 28px 80px;
+    max-width:760px;
+    margin-left:auto;
+    margin-right:auto;
+    padding:50px 36px;
+    background:rgba(201,169,110,0.10);
+    border:1px solid var(--gold);
+    border-radius:8px;
+    text-align:center;
+  }
+  .strategy-cta h3{
+    font-family:Georgia,serif;
+    color:var(--cream);
+    font-size:30px;
+    margin-bottom:14px;
+    font-weight:700;
+  }
+  .strategy-cta h3 em{color:var(--gold);font-style:italic;}
+  .strategy-cta p{
+    color:var(--taupe);
+    margin-bottom:30px;
+    font-style:italic;
+    font-family:Georgia,serif;
+    max-width:520px;
+    margin-left:auto;
+    margin-right:auto;
+    font-size:17px;
+    line-height:1.5;
+  }
+  .book-btn{
+    display:inline-block;
+    background:var(--gold);
+    color:var(--black);
+    padding:18px 40px;
+    border-radius:4px;
+    text-decoration:none;
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    transition:transform 0.2s,box-shadow 0.2s;
+  }
+  .book-btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 8px 24px rgba(184,134,11,0.3);
+  }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  .footer{
+    text-align:center;
+    padding:40px 28px;
+    border-top:1px solid var(--border);
+    color:var(--taupe);
+    font-size:11px;letter-spacing:2px;
+  }
+  .footer .standards{
+    font-family:Georgia,serif;
+    color:var(--gold);
+    font-style:italic;
+    margin-bottom:8px;
+    font-size:14px;
+    letter-spacing:1px;
+  }
+
+  /* ============================================================
+     MOBILE
+     ============================================================ */
+  @media (max-width:600px){
+    .hero{padding:50px 20px 40px;}
+    .hero h1{font-size:36px;}
+    .hero .sub{font-size:17px;}
+    .form-card{padding:30px 24px;}
+    .calc-intro h2{font-size:26px;}
+    .leak-amount{font-size:44px;}
+    .results{padding:30px 22px;}
+    .strategy-cta h3{font-size:24px;}
+    .calc{padding:0 20px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SECTION 1 — HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="kicker">PATIENT ACQUISITION + AUTOMATION SYSTEMS FOR PRIVATE PRACTICES</div>
+  <h1>The Quiet <em>Revenue Leak</em> hiding inside your practice.</h1>
+  <p class="sub">Most aesthetic practices are losing $20K–$60K every month to operational chaos they can't see.</p>
+  <p class="micro"><strong>The 4-Leak Audit</strong> shows you exactly where — and how much — in under 10 minutes. Free.</p>
+
+  <div class="form-card">
+    <div class="form-title">Get Your Personalized Audit</div>
+    <div class="form-subtitle">Enter your details to unlock the diagnostic ↓</div>
+
+    <!-- ============================================================
+         FORM — Replace the action URL with your HighLevel webhook
+         once Katt confirms email integration. The JS below also
+         reveals the calculator on submit, regardless of backend.
+         ============================================================ -->
+    <form id="opt-in-form" novalidate>
+      <div class="field">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Dr. Jane Smith" required>
+      </div>
+      <div class="field">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="jane@yourpractice.com" required>
+      </div>
+      <div class="field">
+        <label for="practice_type">Practice Type</label>
+        <select id="practice_type" name="practice_type" required>
+          <option value="">Select your practice type</option>
+          <option value="med_spa">Med Spa</option>
+          <option value="plastic_surgery">Plastic Surgery</option>
+          <option value="dermatology">Dermatology (Cosmetic)</option>
+          <option value="dermatology_medical">Dermatology (Medical)</option>
+          <option value="cosmetic_dental">Cosmetic Dental</option>
+          <option value="orthodontics">Orthodontics</option>
+          <option value="periodontics">Periodontics</option>
+          <option value="endodontics">Endodontics</option>
+          <option value="other_medical">Other Medical Specialty</option>
+        </select>
+      </div>
+      <button type="submit" class="submit-btn">Unlock My 4-Leak Audit →</button>
+    </form>
+
+    <div class="form-trust">7 QUESTIONS<span class="dot"></span>UNDER 10 MIN<span class="dot"></span>FREE</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 2 — WHAT YOU'LL DISCOVER
+     ============================================================ -->
+<section class="benefits">
+  <div class="benefits-title">WHAT YOU'LL DISCOVER</div>
+  <div class="benefits-grid">
+    <div class="benefit">
+      <div class="benefit-num">01</div>
+      <div class="benefit-title">Your exact monthly leak — in dollars.</div>
+      <div class="benefit-desc">Not vague feelings. Real numbers based on your practice's response time, conversion, and retention metrics.</div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-num">02</div>
+      <div class="benefit-title">Which stage is bleeding the most.</div>
+      <div class="benefit-desc">Acquisition, Conversion, or Retention — your biggest leak gets pinpointed so you know what to fix first.</div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-num">03</div>
+      <div class="benefit-title">A 30-day Quick-Win Roadmap.</div>
+      <div class="benefit-desc">Three specific actions tailored to your biggest leak — implementable this week. No fluff.</div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-num">04</div>
+      <div class="benefit-title">Industry benchmarks for top-10% practices.</div>
+      <div class="benefit-desc">Know exactly how far behind (or ahead) you are vs. the practices that are scaling without adding chair time.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 3 — AUTHORITY STRIP
+     ============================================================ -->
+<section class="authority">
+  <p class="authority-quote">"Most premium practices don't have a marketing problem. They have an operational bleed problem — and the bleed is measurable."</p>
+  <div class="authority-by">— ZAC 3 GENIUS · PATIENT ACQUISITION + AUTOMATION SYSTEMS FOR PRIVATE PRACTICES</div>
+</section>
+
+<!-- ============================================================
+     SECTION 4 — CALCULATOR (HIDDEN BY DEFAULT — JS UNHIDES)
+     ============================================================ -->
+<section class="calculator-wrap" id="calculator-wrap">
+
+  <div class="calc-intro">
+    <div class="kicker" style="margin-bottom:18px;">YOUR ACCESS IS UNLOCKED</div>
+    <h2>The <em>4-Leak Practice Revenue Audit</em></h2>
+    <p>Answer the 7 questions below. Your results update in real-time.</p>
+  </div>
+
+  <div class="calc">
+    <div class="calc-section-title"><span class="calc-num">1</span>Your Practice Basics</div>
+    <div class="currency-row">
+      <div>
+        <label class="q-label">Currency</label>
+        <select id="currency">
+          <option value="$">USD ($)</option>
+          <option value="₱">PHP (₱)</option>
+          <option value="€">EUR (€)</option>
+          <option value="£">GBP (£)</option>
+          <option value="A$">AUD (A$)</option>
+        </select>
+      </div>
+      <div>
+        <label class="q-label">Average client value</label>
+        <p class="q-help">What one paying client typically generates per visit, treatment, or lifetime.</p>
+        <input type="number" id="avgValue" value="2500" min="0">
+      </div>
+    </div>
+
+    <div class="calc-section-title"><span class="calc-num">2</span>The 7-Question Audit</div>
+
+    <div class="q">
+      <label class="q-label">1. How many client inquiries does your practice receive per month?</label>
+      <p class="q-help">Include website forms, DMs, phone calls, walk-ins, referrals.</p>
+      <input type="number" id="inquiries" value="60" min="0">
+    </div>
+
+    <div class="q">
+      <label class="q-label">2. How fast does your team respond to new inquiries (on average)?</label>
+      <select id="responseSpeed">
+        <option value="1">Within 5 minutes</option>
+        <option value="2">Within 30 minutes</option>
+        <option value="3" selected>Within 2 hours</option>
+        <option value="4">Within 24 hours</option>
+        <option value="5">More than 24 hours</option>
+      </select>
+    </div>
+
+    <div class="q">
+      <label class="q-label">3. What % of inquiries book a consultation?</label>
+      <div class="slider-wrap">
+        <input type="range" id="consultRate" min="0" max="100" value="30">
+        <div class="slider-value"><span id="consultRateVal">30</span>%</div>
+      </div>
+    </div>
+
+    <div class="q">
+      <label class="q-label">4. Of consultations, what % accept your treatment plan?</label>
+      <div class="slider-wrap">
+        <input type="range" id="conversionRate" min="0" max="100" value="40">
+        <div class="slider-value"><span id="conversionRateVal">40</span>%</div>
+      </div>
+    </div>
+
+    <div class="q">
+      <label class="q-label">5. What's your no-show rate for booked appointments?</label>
+      <div class="slider-wrap">
+        <input type="range" id="noShowRate" min="0" max="50" value="20">
+        <div class="slider-value"><span id="noShowRateVal">20</span>%</div>
+      </div>
+    </div>
+
+    <div class="q">
+      <label class="q-label">6. What % of past clients have come back in the last 12 months?</label>
+      <div class="slider-wrap">
+        <input type="range" id="reactivationRate" min="0" max="100" value="15">
+        <div class="slider-value"><span id="reactivationRateVal">15</span>%</div>
+      </div>
+    </div>
+
+    <div class="q">
+      <label class="q-label">7. Approximately how many past clients are in your database?</label>
+      <p class="q-help">Total clients who have ever paid you — even if dormant now.</p>
+      <input type="number" id="pastClients" value="250" min="0">
+    </div>
+
+    <div class="results" id="results"></div>
+  </div>
+
+  <!-- ============================================================
+       SECTION 5 — STRATEGY CALL CTA (AFTER CALCULATOR RESULTS)
+       ============================================================ -->
+  <div class="strategy-cta">
+    <h3>Want a <em>personalized walkthrough</em> of your results?</h3>
+    <p>30-minute Strategy Call. We'll review your numbers live, prioritize which leak to plug first, and map your 30-day action plan together.</p>
+    <!-- ============================================================
+         REPLACE this href with your HighLevel calendar booking URL
+         ============================================================ -->
+    <a href="https://your-highlevel-calendar-url-here.com" class="book-btn" id="book-cta">Book Your Strategy Call →</a>
+  </div>
+
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="standards">Standards · Service · Strategy</div>
+  <p>© ZAC 3 GENIUS</p>
+</footer>
+
+<script>
+/* ================================================================
+   FORM SUBMISSION — Reveals calculator + sends data to backend.
+   By default this works for testing (just shows calculator).
+   To wire to HighLevel: replace POST URL below with your webhook.
+   ================================================================ */
+const form = document.getElementById('opt-in-form');
+const calcWrap = document.getElementById('calculator-wrap');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const data = {
+    name: document.getElementById('name').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    practice_type: document.getElementById('practice_type').value,
+    timestamp: new Date().toISOString(),
+    source: 'audit_landing'
+  };
+
+  // Basic validation
+  if (!data.name || !data.email || !data.practice_type) {
+    alert('Please fill in all fields to continue.');
+    return;
+  }
+
+  // Save to localStorage as backup (you can retrieve this from browser console)
+  try {
+    const stored = JSON.parse(localStorage.getItem('audit_leads') || '[]');
+    stored.push(data);
+    localStorage.setItem('audit_leads', JSON.stringify(stored));
+  } catch (err) { /* localStorage may be disabled — ignore */ }
+
+  // OPTIONAL — Send to backend webhook (HighLevel/Formspree/etc)
+  // Uncomment and replace URL when you have an endpoint configured:
+  /*
+  try {
+    await fetch('https://YOUR-HIGHLEVEL-WEBHOOK-URL-HERE', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    });
+  } catch (err) {
+    console.warn('Webhook failed (lead still captured in localStorage):', err);
+  }
+  */
+
+  // Reveal calculator section
+  calcWrap.classList.add('revealed');
+
+  // Smooth scroll to calculator
+  setTimeout(() => {
+    calcWrap.scrollIntoView({behavior: 'smooth', block: 'start'});
+  }, 100);
+
+  // Initialize calculator
+  calculate();
+});
+
+/* ================================================================
+   CALCULATOR LOGIC — Same math as the standalone version
+   ================================================================ */
+function fmt(n, c) {
+  if (n < 0) n = 0;
+  return c + Math.round(n).toLocaleString();
+}
+
+function calculate() {
+  const c = document.getElementById('currency').value;
+  const avgValue = parseFloat(document.getElementById('avgValue').value) || 0;
+  const inquiries = parseFloat(document.getElementById('inquiries').value) || 0;
+  const responseSpeed = parseInt(document.getElementById('responseSpeed').value);
+  const consultRate = parseFloat(document.getElementById('consultRate').value) || 0;
+  const conversionRate = parseFloat(document.getElementById('conversionRate').value) || 0;
+  const noShowRate = parseFloat(document.getElementById('noShowRate').value) || 0;
+  const reactivationRate = parseFloat(document.getElementById('reactivationRate').value) || 0;
+  const pastClients = parseFloat(document.getElementById('pastClients').value) || 0;
+
+  document.getElementById('consultRateVal').textContent = consultRate;
+  document.getElementById('conversionRateVal').textContent = conversionRate;
+  document.getElementById('noShowRateVal').textContent = noShowRate;
+  document.getElementById('reactivationRateVal').textContent = reactivationRate;
+
+  // Benchmarks (top-performing premium practices)
+  const BENCH_CONSULT = 50, BENCH_CONVERT = 60, BENCH_NOSHOW = 8, BENCH_REACTIVATE = 30;
+
+  const currentConsultsBooked = inquiries * (consultRate/100);
+  const currentConsultsShowed = currentConsultsBooked * (1 - noShowRate/100);
+
+  // Acquisition Leak — lost inquiries due to slow response
+  const responseLostPct = [0, 0, 10, 20, 35, 50][responseSpeed];
+  const lostInquiries = inquiries * (responseLostPct/100);
+  const acquisitionLeak = lostInquiries * (consultRate/100) * (1 - noShowRate/100) * (conversionRate/100) * avgValue;
+
+  // Conversion Leak — three components
+  let conversionLeak = 0;
+  if (consultRate < BENCH_CONSULT) {
+    const gap = (BENCH_CONSULT - consultRate)/100;
+    const addBooked = inquiries * gap;
+    const addShowed = addBooked * (1 - noShowRate/100);
+    const addClients = addShowed * (conversionRate/100);
+    conversionLeak += addClients * avgValue;
+  }
+  if (conversionRate < BENCH_CONVERT) {
+    const gap = (BENCH_CONVERT - conversionRate)/100;
+    conversionLeak += currentConsultsShowed * gap * avgValue;
+  }
+  if (noShowRate > BENCH_NOSHOW) {
+    const gap = (noShowRate - BENCH_NOSHOW)/100;
+    const addShowed = currentConsultsBooked * gap;
+    conversionLeak += addShowed * (conversionRate/100) * avgValue;
+  }
+
+  // Retention Leak
+  let retentionLeak = 0;
+  if (reactivationRate < BENCH_REACTIVATE) {
+    const gap = (BENCH_REACTIVATE - reactivationRate)/100;
+    retentionLeak = (pastClients * gap * avgValue) / 12;
+  }
+
+  const totalLeak = acquisitionLeak + conversionLeak + retentionLeak;
+  const annualLeak = totalLeak * 12;
+
+  const stages = [
+    {name:'Acquisition', value:acquisitionLeak},
+    {name:'Conversion', value:conversionLeak},
+    {name:'Retention', value:retentionLeak}
+  ];
+  stages.sort((a,b) => b.value - a.value);
+  const biggest = stages[0];
+
+  let actions = [];
+  if (biggest.name === 'Acquisition' && biggest.value > 0) {
+    actions = [
+      {title:'1. Install a missed-call text-back system this week.', desc:'Every unanswered call gets an automated SMS within 60 seconds. Captures 30–40% of lost inquiries with zero front desk effort.'},
+      {title:'2. Set a 5-minute response standard — non-negotiable.', desc:'Top performers respond in under 5 minutes. Each hour of delay drops conversion by ~10%. Make it a workflow rule, not a guideline.'},
+      {title:'3. Audit every inquiry channel for silent leaks.', desc:'Forms, DMs, calls, walk-ins — confirm each has an auto-acknowledgment. If even one channel is silent, leads die there.'}
+    ];
+  } else if (biggest.name === 'Conversion' && biggest.value > 0) {
+    actions = [
+      {title:'1. Build a pre-consult nurture sequence.', desc:'A 3–5 message Email + SMS sequence between inquiry and consult day. Reduces no-shows by 40–60% and primes the patient to say yes.'},
+      {title:'2. Install a no-show recovery flow.', desc:'When someone no-shows, automated rebooking message goes out within 15 minutes. Recovers 25–35% of missed appointments.'},
+      {title:'3. Add a treatment-plan follow-up sequence.', desc:'For patients who consult but don’t commit on the spot, a 7-day automated follow-up converts an additional 15–25% to paying clients.'}
+    ];
+  } else if (biggest.name === 'Retention' && biggest.value > 0) {
+    actions = [
+      {title:'1. Launch a patient reactivation campaign this month.', desc:'One targeted Email + SMS sweep through your dormant client database. Premium practices recover 8–15% on first try.'},
+      {title:'2. Install a recall + birthday + anniversary automation flow.', desc:'Annual checkup reminders, treatment-anniversary touches, birthday VIP offers. Compounds retention with zero ongoing effort.'},
+      {title:'3. Set up automated review and referral capture.', desc:'Trigger a review request after every completed service. Add a referral capture step. Turns happy patients into your acquisition channel.'}
+    ];
+  } else {
+    actions = [
+      {title:'Your back-end is already at top-performer levels.', desc:'Outstanding. Your next leverage is in scaling client lifetime value and expanding service tiers — let’s talk strategy.'}
+    ];
+  }
+
+  const total = (acquisitionLeak + conversionLeak + retentionLeak) || 1;
+  const acqPct = (acquisitionLeak / total) * 100;
+  const convPct = (conversionLeak / total) * 100;
+  const retPct = (retentionLeak / total) * 100;
+
+  document.getElementById('results').innerHTML = `
+    <div class="results-kicker">Your Estimated Monthly Revenue Leak</div>
+    <div class="leak-amount">${fmt(totalLeak, c)}</div>
+    <div class="leak-period">leaking out of your practice every month</div>
+    <div class="annual">12-month projection: <strong>${fmt(annualLeak, c)}</strong></div>
+
+    <div class="breakdown">
+      <div class="breakdown-title">Where the Leak Is Hiding</div>
+      <div class="bar">
+        <div class="bar-row"><span class="bar-label">Acquisition — slow response, lost inquiries</span><span class="bar-value">${fmt(acquisitionLeak, c)}</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:${acqPct}%"></div></div>
+      </div>
+      <div class="bar">
+        <div class="bar-row"><span class="bar-label">Conversion — low booking, no-shows, lost consults</span><span class="bar-value">${fmt(conversionLeak, c)}</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:${convPct}%"></div></div>
+      </div>
+      <div class="bar">
+        <div class="bar-row"><span class="bar-label">Retention — dormant clients, no recall</span><span class="bar-value">${fmt(retentionLeak, c)}</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:${retPct}%"></div></div>
+      </div>
+    </div>
+
+    <div class="diagnosis">
+      <h3>Diagnosis</h3>
+      <p>Your biggest revenue leak is in <strong style="color:var(--gold)">${biggest.name}</strong>, costing approximately <strong style="color:var(--gold)">${fmt(biggest.value, c)}</strong> per month.</p>
+      <p><em>This is recoverable. The fixes below are designed to be implemented within 30 days — most within the first week.</em></p>
+    </div>
+
+    <div class="roadmap">
+      <h3>Your 30-Day Quick-Win Roadmap</h3>
+      ${actions.map(a => `
+        <div class="action">
+          <div class="action-title">${a.title}</div>
+          <div class="action-desc">${a.desc}</div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+// Attach calculator listeners
+document.querySelectorAll('.calc input, .calc select').forEach(el => {
+  el.addEventListener('input', calculate);
+  el.addEventListener('change', calculate);
+});
+</script>
+
+</body>
+</html>
