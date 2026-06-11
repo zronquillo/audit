@@ -495,7 +495,6 @@
     border-top:1px solid var(--border);
     color:var(--taupe);
     font-size:11px;letter-spacing:2px;
-  }
   .footer .standards{
     font-family:Georgia,serif;
     color:var(--gold);
@@ -504,6 +503,66 @@
     font-size:14px;
     letter-spacing:1px;
   }
+  .footer-link{
+    color:inherit;
+    text-decoration:none;
+    transition:color 0.2s;
+    border-bottom:1px solid transparent;
+    padding-bottom:1px;
+  }
+  .footer-link:hover{
+    color:var(--gold);
+    border-bottom-color:var(--gold);
+  }
+
+  /* ============================================================
+     MID-PAGE CTA (between Benefits and Authority — CRO pattern)
+     ============================================================ */
+  .mid-cta{
+    padding:70px 28px 80px;
+    text-align:center;
+    border-bottom:1px solid var(--border);
+    background:linear-gradient(180deg,rgba(201,169,110,0.04) 0%,transparent 100%);
+  }
+  .mid-cta-prompt{
+    font-family:Georgia,serif;
+    font-style:italic;
+    font-size:22px;
+    color:var(--cream);
+    margin-bottom:28px;
+    line-height:1.4;
+  }
+  .mid-cta-prompt em{
+    color:var(--gold);
+    font-style:italic;
+    font-weight:600;
+  }
+  .mid-cta-btn{
+    display:inline-block;
+    background:var(--gold);
+    color:var(--navy);
+    padding:18px 44px;
+    border-radius:4px;
+    text-decoration:none;
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    transition:transform 0.2s,box-shadow 0.2s;
+    font-family:inherit;
+  }
+  .mid-cta-btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 8px 24px rgba(184,134,11,0.3);
+  }
+  .mid-cta-sub{
+    margin-top:18px;
+    font-size:11px;
+    letter-spacing:2px;
+    color:var(--taupe);
+    text-transform:uppercase;
+  }
+  .mid-cta-sub .dot{display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--gold);margin:0 8px;vertical-align:middle;}
 
   /* ============================================================
      MOBILE
@@ -518,6 +577,9 @@
     .results{padding:30px 22px;}
     .strategy-cta h3{font-size:24px;}
     .calc{padding:0 20px;}
+    .mid-cta{padding:50px 20px 60px;}
+    .mid-cta-prompt{font-size:18px;}
+    .mid-cta-btn{padding:16px 32px;font-size:13px;}
   }
 </style>
 </head>
@@ -627,6 +689,15 @@
       <div class="benefit-desc">Know exactly how far behind (or ahead) you are vs. the practices that are scaling without adding chair time.</div>
     </div>
   </div>
+</section>
+
+<!-- ============================================================
+     MID-PAGE CTA — Scroll-to-form (CRO pattern after benefits)
+     ============================================================ -->
+<section class="mid-cta">
+  <p class="mid-cta-prompt">Ready to see <em>your</em> exact leak number?</p>
+  <a href="#opt-in-form" class="mid-cta-btn">Show Me My Leak Number →</a>
+  <div class="mid-cta-sub">FREE<span class="dot"></span>UNDER 10 MINUTES<span class="dot"></span>NO CARD REQUIRED</div>
 </section>
 
 <!-- ============================================================
@@ -749,7 +820,7 @@
      ============================================================ -->
 <footer class="footer">
   <div class="standards">Standards · Service · Strategy</div>
-  <p>© ZAC 3 GENIUS</p>
+  <p><a href="https://www.zac3genius.com" target="_blank" rel="noopener noreferrer" class="footer-link">© ZAC 3 GENIUS</a></p>
 </footer>
 
 <script>
